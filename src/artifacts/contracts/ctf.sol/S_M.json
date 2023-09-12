@@ -1,0 +1,39 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "S_M",
+  "sourceName": "contracts/ctf.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint16",
+          "name": "_magicno",
+          "type": "uint16"
+        },
+        {
+          "internalType": "string",
+          "name": "_just_a_name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_secret_missive",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_x_",
+          "type": "string"
+        }
+      ],
+      "name": "open_entrance_door",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
