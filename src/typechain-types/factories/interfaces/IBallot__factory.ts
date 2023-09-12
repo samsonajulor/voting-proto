@@ -50,21 +50,9 @@ const _abi = [
     name: "getVotingCategories",
     outputs: [
       {
-        components: [
-          {
-            internalType: "string",
-            name: "name",
-            type: "string",
-          },
-          {
-            internalType: "uint256",
-            name: "voteCount",
-            type: "uint256",
-          },
-        ],
-        internalType: "struct Category[]",
+        internalType: "string[]",
         name: "",
-        type: "tuple[]",
+        type: "string[]",
       },
     ],
     stateMutability: "view",

@@ -21,13 +21,6 @@ import type {
   TypedContractMethod,
 } from "../common";
 
-export type CategoryStruct = { name: string; voteCount: BigNumberish };
-
-export type CategoryStructOutput = [name: string, voteCount: bigint] & {
-  name: string;
-  voteCount: bigint;
-};
-
 export interface IBallotInterface extends Interface {
   getFunction(
     nameOrSignature:
@@ -158,11 +151,7 @@ export interface IBallot extends BaseContract {
 
   delegate: TypedContractMethod<[_to: AddressLike], [void], "nonpayable">;
 
-  getVotingCategories: TypedContractMethod<
-    [],
-    [CategoryStructOutput[]],
-    "view"
-  >;
+  getVotingCategories: TypedContractMethod<[], [string[]], "view">;
 
   giveRightToVote: TypedContractMethod<
     [_voter: AddressLike],
@@ -197,7 +186,7 @@ export interface IBallot extends BaseContract {
   ): TypedContractMethod<[_to: AddressLike], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "getVotingCategories"
-  ): TypedContractMethod<[], [CategoryStructOutput[]], "view">;
+  ): TypedContractMethod<[], [string[]], "view">;
   getFunction(
     nameOrSignature: "giveRightToVote"
   ): TypedContractMethod<[_voter: AddressLike], [void], "nonpayable">;

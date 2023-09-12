@@ -1,7 +1,7 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  const ballotContractAddress = '0x5befac33dEA0B9eB9b106115a1cc92bd99D05D0b';
+  const ballotContractAddress = '0x9A426B5660100B87E2A43A6eDE056655DfC818e6';
 
   const ballotContract = await ethers.getContractAt('IBallot', ballotContractAddress);
 

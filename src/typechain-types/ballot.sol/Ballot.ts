@@ -21,15 +21,6 @@ import type {
   TypedContractMethod,
 } from "../common";
 
-export declare namespace Ballot {
-  export type CategoryStruct = { name: string; voteCount: BigNumberish };
-
-  export type CategoryStructOutput = [name: string, voteCount: bigint] & {
-    name: string;
-    voteCount: bigint;
-  };
-}
-
 export interface BallotInterface extends Interface {
   getFunction(
     nameOrSignature:
@@ -143,11 +134,7 @@ export interface Ballot extends BaseContract {
 
   addCategory: TypedContractMethod<[_name: string], [void], "nonpayable">;
 
-  getVotingCategories: TypedContractMethod<
-    [],
-    [Ballot.CategoryStructOutput[]],
-    "view"
-  >;
+  getVotingCategories: TypedContractMethod<[], [string[]], "view">;
 
   giveRightToVote: TypedContractMethod<
     [_voter: AddressLike],
@@ -194,7 +181,7 @@ export interface Ballot extends BaseContract {
   ): TypedContractMethod<[_name: string], [void], "nonpayable">;
   getFunction(
     nameOrSignature: "getVotingCategories"
-  ): TypedContractMethod<[], [Ballot.CategoryStructOutput[]], "view">;
+  ): TypedContractMethod<[], [string[]], "view">;
   getFunction(
     nameOrSignature: "giveRightToVote"
   ): TypedContractMethod<[_voter: AddressLike], [void], "nonpayable">;

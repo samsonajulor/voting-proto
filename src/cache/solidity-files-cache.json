@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/samsonajulor/github/web3/voting-proto/src/contracts/ballot.sol": {
-      "lastModificationDate": 1694537668170,
-      "contentHash": "11be4952054d5590736efbbbc291f57a",
+      "lastModificationDate": 1694538407857,
+      "contentHash": "eb0b7c248b6d292beff85490858927a8",
       "sourceName": "contracts/ballot.sol",
       "solcConfig": {
         "version": "0.8.13",
@@ -37,8 +37,8 @@
       ]
     },
     "/home/samsonajulor/github/web3/voting-proto/src/contracts/interfaces/IBallot.sol": {
-      "lastModificationDate": 1694537323408,
-      "contentHash": "cd94a954bbcc26a2285e19e2a5516ad4",
+      "lastModificationDate": 1694538471747,
+      "contentHash": "a800a0bcd521edda0bf8df99969a397e",
       "sourceName": "contracts/interfaces/IBallot.sol",
       "solcConfig": {
         "version": "0.8.13",

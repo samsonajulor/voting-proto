@@ -62,9 +62,11 @@ contract Ballot {
         winningCategoryName_ = votingCategories[winningCategory()].name;
     }
 
-    function getVotingCategories () public view returns (Category[] memory) {
-        return votingCategories;
+    function getVotingCategories () public view returns (string[] memory) {
+        string[] memory categories = new string[](votingCategories.length);
+        for (uint i = 0; i < votingCategories.length; i++) {
+            categories[i] = votingCategories[i].name;
+        }
+        return categories;
     }
-
-    receive() external payable {}
 }

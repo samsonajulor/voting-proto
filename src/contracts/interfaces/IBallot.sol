@@ -1,11 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.7.0 <0.9.0;
 
-
-    struct Category {
-        string name;
-        uint voteCount;
-    }
 interface IBallot {
     function giveRightToVote(address _voter) external;
     function delegate(address _to) external;
@@ -15,6 +10,6 @@ interface IBallot {
     function winningCategory() external view returns (uint winningCategory_);
     function winningCategoryName() external view returns (bytes memory winningCategoryName_);
     function addvotingCategories(string[] memory _names) external;
-    function getVotingCategories () external view returns (Category[] memory);
+    function getVotingCategories () external view returns (string[] memory);
 }
 
