@@ -1,30 +1,75 @@
 import { ethers } from 'hardhat';
 
 async function main() {
-  // Contract Addresses
   const uniswapAddr = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D';
   const UNI = '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984';
-  const DAI = '0x6B175474E89094C44Da98b954EedeAC495271d0F';
+  const AAVE = '0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9';
 
-  // Users
   const bluetoothBoy = '0x3744DA57184575064838BBc87A0FC791F5E39eA2';
   const bluetoothBoySignature = await ethers.getImpersonatedSigner(bluetoothBoy);
 
-  // Contract Instances
   const uniswapContract = await ethers.getContractAt('IUniswap', uniswapAddr);
   const UNIContract = await ethers.getContractAt('IERC20', UNI);
-  const DAIContract = await ethers.getContractAt('IERC20', DAI);
+  const AAVEContract = await ethers.getContractAt('IERC20', AAVE);
 
   const factory = await uniswapContract.factory();
   const uniswapFactory = await ethers.getContractAt('IUniswapV2Factory', factory);
 
-  const pairAddress = await uniswapFactory.getPair(UNI, DAI);
+  const pairAddress = await uniswapFactory.getPair(UNI, AAVE);
 
   console.log({ pairAddress });
+
+  const pairContract = await ethers.getContractAt('IUniswapV2Pair', pairAddress);
+
+    const etherBal = ethers.formatEther(await ethers.provider.getBalance(bluetoothBoy));
+    const UNIBal = ethers.formatEther(await UNIContract.balanceOf(bluetoothBoy));
+    const AAVEBal = ethers.formatEther(await AAVEContract.balanceOf(bluetoothBoy));
+    const liquidityBal = ethers.formatEther(await pairContract.balanceOf(bluetoothBoy));
+
+    console.log({
+      etherBal,
+      UNIBal,
+      AAVEBal,
+      liquidityBal,
+    });
+
+  // // Approval
+  // const enoughAllowance = ethers.parseEther('10000');
+  // const approveUNI = await UNIContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
+  // const approveAAVE = await AAVEContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
+  // const approveLiquidityPair = await pairContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
+
+  // await approveUNI.wait();
+  // await approveAAVE.wait();
+  // await approveLiquidityPair.wait();
+
+  // // Add Liquidity
+
+  // const amountToAdd = ethers.parseEther('625');
+  // const amountMin = ethers.parseEther('0');
+  // const aDayFromNow = Math.round(Date.now() / 1000) + 64800;
+
+  // const addLiq = await uniswapContract
+  //   .connect(bluetoothBoySignature)
+  //   .addLiquidity(UNI, AAVE, amountToAdd, amountToAdd, amountMin, amountMin, bluetoothBoy, aDayFromNow);
+
+  // await addLiq.wait();
+
+  // await checkAllBalance('Balance after --- addLiquidity() ---');
+
+  // // Remove Liquidity
+  // const minRemoval = ethers.parseEther('0');
+  // const liquidityBal = await pairContract.balanceOf(bluetoothBoy);
+
+  // const removeLiq = await uniswapContract
+  //   .connect(bluetoothBoySignature)
+  //   .removeLiquidity(UNI, AAVE, liquidityBal, minRemoval, minRemoval, bluetoothBoy, aDayFromNow);
+
+  // await removeLiq.wait();
+
+  // await checkAllBalance('Balance after --- removeLiquidity() ---');
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
 main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
