@@ -1,6 +1,6 @@
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
-import { private_key_1, private_key_2, private_key_3, baserpc, etherscan_api_key } from '../secrets.json';
+import { private_key_1, private_key_2, private_key_3, baserpc, etherscan_api_key, mainnet } from '../secrets.json';
 
 const config: HardhatUserConfig = {
   solidity: '0.8.13',
@@ -11,7 +11,7 @@ const config: HardhatUserConfig = {
     },
     hardhat: {
       forking: {
-        url: baserpc,
+        url: mainnet,
       },
     },
   },
