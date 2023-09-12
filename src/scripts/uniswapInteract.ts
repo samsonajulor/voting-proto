@@ -32,42 +32,6 @@ async function main() {
       AAVEBal,
       liquidityBal,
     });
-
-  // // Approval
-  // const enoughAllowance = ethers.parseEther('10000');
-  // const approveUNI = await UNIContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
-  // const approveAAVE = await AAVEContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
-  // const approveLiquidityPair = await pairContract.connect(bluetoothBoySignature).approve(uniswapAddr, enoughAllowance);
-
-  // await approveUNI.wait();
-  // await approveAAVE.wait();
-  // await approveLiquidityPair.wait();
-
-  // // Add Liquidity
-
-  // const amountToAdd = ethers.parseEther('625');
-  // const amountMin = ethers.parseEther('0');
-  // const aDayFromNow = Math.round(Date.now() / 1000) + 64800;
-
-  // const addLiq = await uniswapContract
-  //   .connect(bluetoothBoySignature)
-  //   .addLiquidity(UNI, AAVE, amountToAdd, amountToAdd, amountMin, amountMin, bluetoothBoy, aDayFromNow);
-
-  // await addLiq.wait();
-
-  // await checkAllBalance('Balance after --- addLiquidity() ---');
-
-  // // Remove Liquidity
-  // const minRemoval = ethers.parseEther('0');
-  // const liquidityBal = await pairContract.balanceOf(bluetoothBoy);
-
-  // const removeLiq = await uniswapContract
-  //   .connect(bluetoothBoySignature)
-  //   .removeLiquidity(UNI, AAVE, liquidityBal, minRemoval, minRemoval, bluetoothBoy, aDayFromNow);
-
-  // await removeLiq.wait();
-
-  // await checkAllBalance('Balance after --- removeLiquidity() ---');
 }
 
 main().catch((error) => {
