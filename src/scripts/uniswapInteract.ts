@@ -32,6 +32,16 @@ async function main() {
       AAVEBal,
       liquidityBal,
     });
+
+  // Approval
+  const allowance = ethers.parseEther('450000000');
+  const approveUNI = await UNIContract.connect(bluetoothBoySignature).approve(uniswapAddr, allowance);
+  const approveAAVE = await AAVEContract.connect(bluetoothBoySignature).approve(uniswapAddr, allowance);
+  const approveLiquidityPair = await pairContract.connect(bluetoothBoySignature).approve(uniswapAddr, allowance);
+
+  await approveUNI.wait();
+  await approveAAVE.wait();
+  await approveLiquidityPair.wait();
 }
 
 main().catch((error) => {
