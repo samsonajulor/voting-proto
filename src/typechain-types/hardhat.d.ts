@@ -14,170 +14,44 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: "MyContract",
+      name: "Ballot",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MyContract__factory>;
+    ): Promise<Contracts.Ballot__factory>;
     getContractFactory(
-      name: "S_M",
+      name: "IBallot",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.S_M__factory>;
-    getContractFactory(
-      name: "IMultiSig",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMultiSig__factory>;
-    getContractFactory(
-      name: "IMultiSigWura",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.IMultiSigWura__factory>;
-    getContractFactory(
-      name: "Lock",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Lock__factory>;
-    getContractFactory(
-      name: "Multisig",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.Multisig__factory>;
-    getContractFactory(
-      name: "MultiSigMain",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MultiSigMain__factory>;
-    getContractFactory(
-      name: "MultiSigFactory",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MultiSigFactory__factory>;
-    getContractFactory(
-      name: "MultiSig",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MultiSig__factory>;
+    ): Promise<Contracts.IBallot__factory>;
 
     getContractAt(
-      name: "MyContract",
+      name: "Ballot",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.MyContract>;
+    ): Promise<Contracts.Ballot>;
     getContractAt(
-      name: "S_M",
+      name: "IBallot",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.S_M>;
-    getContractAt(
-      name: "IMultiSig",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMultiSig>;
-    getContractAt(
-      name: "IMultiSigWura",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.IMultiSigWura>;
-    getContractAt(
-      name: "Lock",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Lock>;
-    getContractAt(
-      name: "Multisig",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.Multisig>;
-    getContractAt(
-      name: "MultiSigMain",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MultiSigMain>;
-    getContractAt(
-      name: "MultiSigFactory",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MultiSigFactory>;
-    getContractAt(
-      name: "MultiSig",
-      address: string | ethers.Addressable,
-      signer?: ethers.Signer
-    ): Promise<Contracts.MultiSig>;
+    ): Promise<Contracts.IBallot>;
 
     deployContract(
-      name: "MyContract",
+      name: "Ballot",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyContract>;
+    ): Promise<Contracts.Ballot>;
     deployContract(
-      name: "S_M",
+      name: "IBallot",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.S_M>;
-    deployContract(
-      name: "IMultiSig",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IMultiSig>;
-    deployContract(
-      name: "IMultiSigWura",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IMultiSigWura>;
-    deployContract(
-      name: "Lock",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
-    deployContract(
-      name: "Multisig",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Multisig>;
-    deployContract(
-      name: "MultiSigMain",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSigMain>;
-    deployContract(
-      name: "MultiSigFactory",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSigFactory>;
-    deployContract(
-      name: "MultiSig",
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSig>;
+    ): Promise<Contracts.IBallot>;
 
     deployContract(
-      name: "MyContract",
+      name: "Ballot",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MyContract>;
+    ): Promise<Contracts.Ballot>;
     deployContract(
-      name: "S_M",
+      name: "IBallot",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.S_M>;
-    deployContract(
-      name: "IMultiSig",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IMultiSig>;
-    deployContract(
-      name: "IMultiSigWura",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.IMultiSigWura>;
-    deployContract(
-      name: "Lock",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Lock>;
-    deployContract(
-      name: "Multisig",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.Multisig>;
-    deployContract(
-      name: "MultiSigMain",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSigMain>;
-    deployContract(
-      name: "MultiSigFactory",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSigFactory>;
-    deployContract(
-      name: "MultiSig",
-      args: any[],
-      signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MultiSig>;
+    ): Promise<Contracts.IBallot>;
 
     // default types
     getContractFactory(
